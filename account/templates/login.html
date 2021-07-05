@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+<br><br><br><br><br><br>
+<h1>경기대학교</h1>
+<br>______
+<br><br><br>
+<p>경기대학교 멋사에 지원해 주셔서 감사합니다.<br>제출 기한 <span style="color: red;">3.12일 23:59</span> 까지</p>
+<br>
+<div class="text" style="background-color: white; color: black;">
+
+<br>
+    <form action="{%url 'urllogin'%}" style="display: inline-block " method="POST">
+        {%csrf_token%}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="{{lf.username.value|default_if_none:''}}">
+            
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" name="password" value="{{lf.password.value|default_if_none:''}}">
+            
+        </div>
+
+        <button type="submit" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">로그인</button>
+        <br><br>
+    </form>
+
+</div>
+  
+{%endblock%}

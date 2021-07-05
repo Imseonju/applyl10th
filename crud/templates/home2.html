@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%block content%}
+<br><br>
+<h1>경기대학교</h1><br><br>
+______ <br><br><br>
+{%if user.is_authenticated%}
+<h5>{{user.realname}}님 🦁 반갑습니다!</h5>
+{%endif%}
+<br><br>
+<a href="{%url 'urlnew'%}" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">작성하기</a>
+<a href="{%url 'urllogout'%}" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">로그아웃</a>
+<hr>
+<br><br><br>
+<h3 style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;지원서를 제출한 학생은 {{count}} 명입니다.</h3><br><br>
+{%for a in aa%}
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem; display: inline-block; padding: 50;" >
+    <!-- <div class="card-header">Header</div> -->
+    <div class="card-body">
+    <h5 class="card-title">{{a.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{a.snum}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{a.dept}}</h6> 
+    <h6 class="card-title">{{a.s_time}}</h6> 
+      <br><br>
+      <a href="{%url 'urldetail' a.id%}" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">확인하기</a>
+    </div>
+</div>
+{%endfor%}
+{%endblock%}

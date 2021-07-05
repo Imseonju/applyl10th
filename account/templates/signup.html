@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%block content%}
+<br><br><br><br><br><br>
+<h1>경기대학교</h1>
+<br>______
+<br><br><br>
+<p>경기대학교 멋사에 지원해 주셔서 감사합니다.<br>제출 기한 <span style="color: red;">3.12일 23:59</span> 까지</p>
+<br>
+<div class="text" style="background-color: white; color: black;">
+
+<br>
+    <form action="{%url 'urlsignup'%}" style="display: inline-block " method="POST">
+        {%csrf_token%}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="{{sf.username.value|default_if_none:''}}">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" name="password1" value="{{sf.password1.value|default_if_none:''}}">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Password Confirmation</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" aria-describedby="emailHelp" name="password2" value="{{sf.password2.value|default_if_none:''}}">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput1" class="form-label">이름</label>
+            <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp" name="realname" value="{{sf.realname.value|default_if_none:''}}">
+            
+        </div>
+        <!-- 닉네임 -->
+        <div class="mb-3">
+            <label for="exampleInput3" class="form-label">학번(4자리)</label>
+            <input type="text" class="form-control" id="exampleInput3" aria-describedby="emailHelp" name="s_num" value="{{sf.s_num.value|default_if_none:''}}">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput4" class="form-label">학과</label>
+            <input type="text" class="form-control" id="exampleInput4" aria-describedby="emailHelp" name="s_dept" value="{{sf.s_dept.value|default_if_none:''}}">
+            
+        </div>
+        
+        <button type="submit" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">회원가입</button>
+        <br><br>
+    </form>
+</div>
+<br><br><br><br><br> 
+{%endblock%}

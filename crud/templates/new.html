@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+{%block content%}
+<br><br><br><br><br><br>
+<h1>경기대학교</h1>
+<br>______
+<br><br><br>
+<p>경기대학교 멋사에 지원해 주셔서 감사합니다.<br>제출 기한 <span style="color: red;">3.12일 23:59</span> 까지</p>
+<br>
+<div class="text" style="background-color: white; color: black;">
+    {%if user.is_authenticated%}
+    <form action="{%url 'urlcreate'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <br><br><br>
+        <div class="mb-3">
+            <label for="exampleInput1" class="form-label">이름</label>
+            <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp" name="n" value="{{user.realname}}" readonly='readonly' >   
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput2" class="form-label">학번</label>
+            <input type="text" class="form-control" id="exampleInput2" aria-describedby="emailHelp" name="d" value="{{user.s_num}}" readonly='readonly'>   
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput3" class="form-label">학과</label>
+            <input type="text" class="form-control" id="exampleInput3" aria-describedby="emailHelp" name="sn" value="{{user.s_dept}}" readonly='readonly'>    
+        </div>
+         <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"> 1. 지원 동기 (500자 이내) </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="m"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea2" class="form-label"> 2. 만들고 싶은 서비스 (500자 이내) </label>
+            <textarea class="form-control" id="exampleFormControlTextarea2" rows="5" name="s"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea3" class="form-label"> 3. 본인의 장점과 단점에 대해 서술해주세요. (500자 이내) </label>
+            <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" name="p"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea4" class="form-label"> 4. 프로젝트/동아리 활동 경험 및 단체 내 갈등 발생시 해결 방법을 서술해주세요.
+                (500자 이내) </label>
+            <textarea class="form-control" id="exampleFormControlTextarea4" rows="5" name="c"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea5" class="form-label"> 5. 멋사를 통해서 얻어가고 싶은 것과 포부를 서술해주세요. (100자 이내)
+            </label>
+            <textarea class="form-control" id="exampleFormControlTextarea5" rows="3" name="a"></textarea>
+        </div>
+        <label for="inputname4" class="form-label">첨부파일</label>
+        <input type="file" id="inputname4" class="form-control" aria-describedby="passwordHelpBlock" name="image"><br>
+
+        <br><br><br>
+
+</div>
+
+<br><br><br>
+<div style="display: inline-block;">
+    <button type="submit" class="btn btn-lg" style="border-color: darkorange; color: darkorange;">제출하기</a>
+</div>
+<br><br><br>
+</form>
+{%endif%}
+{%endblock%}
