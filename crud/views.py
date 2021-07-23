@@ -1,6 +1,8 @@
+from django.db.models.manager import EmptyManager
 from django.shortcuts import redirect, render, get_object_or_404
 from.models import Apply
 from django.utils import timezone
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -19,8 +21,11 @@ def new(request):
     return render(request, 'new.html')
 
 def create(request):
+    if Apply.objects.filter(snum = request.POST['sn']).exists():
+        eapply = get_object_or_404(Apply, snum = request.POST['sn'])
+        messages.info(request, '한 계정당 하나의 지원서만 작성 가능합니다!')
+        return redirect('urldetail', eapply.id)
     nform = Apply()
-
     nform.motive = request.POST['m']
     nform.service = request.POST['s']
     nform.pac = request.POST['p']

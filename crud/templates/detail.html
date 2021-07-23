@@ -1,12 +1,19 @@
 {%extends 'base.html'%}
 {%block content%}
-<br><br><br><br><br><br>
+{%if messages%}
+{%for m in messages%}
+<div style="color: red;">
+    <strong>{{m.message}}</strong>
+</div>
+{%endfor%}
+{%endif%}
+<br><br>
 <h1>{{b.name}}</h1>
 <br>______
 <br><br><br>
 <p>{{b.snum}}<br>{{b.dept}}</p>
 <br>
-<h6>최종 제출 시각 <span style="color: red;">{{b.s_time}}</span></h6>
+<h6>최종 제출 시각 <span style="color: darkorange;">{{b.s_time}}</span></h6><br>
 <div class="text" style="background-color: white; color: black;">
 {%if b.image%}
 <br><h5> 첨부파일 </h5>
