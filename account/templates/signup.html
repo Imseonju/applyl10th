@@ -15,17 +15,17 @@
     <form action="{%url 'urlsignup'%}" style="display: inline-block " method="POST">
         {%csrf_token%}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <label for="exampleInputEmail1" class="form-label">아이디</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="{{sf.username.value|default_if_none:''}}">
             
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label for="exampleInputPassword1" class="form-label">비밀번호</label>
             <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" name="password1" value="{{sf.password1.value|default_if_none:''}}">
             
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword2" class="form-label">Password Confirmation</label>
+            <label for="exampleInputPassword2" class="form-label">비밀번호 확인</label>
             <input type="password" class="form-control" id="exampleInputPassword2" aria-describedby="emailHelp" name="password2" value="{{sf.password2.value|default_if_none:''}}">
             
         </div>
@@ -34,7 +34,6 @@
             <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp" name="realname" value="{{sf.realname.value|default_if_none:''}}">
             
         </div>
-        <!-- 닉네임 -->
         <div class="mb-3">
             <label for="exampleInput3" class="form-label">학번</label>
             <input type="text" class="form-control" id="exampleInput3" aria-describedby="emailHelp" name="s_num" value="{{sf.s_num.value|default_if_none:''}}" placeholder="9자리를 입력해주세요">

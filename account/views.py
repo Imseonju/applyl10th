@@ -15,6 +15,7 @@ def login_view(request):
             password = form.cleaned_data.get("password")
             user = authenticate(request=request, username=username, password=password)
             login(request, user)
+            return redirect('urlhome2')
         else:
             if CustomUser.objects.filter(username = request.POST['username']).exists():
                 messages.info(request, '비밀번호가 틀렸습니다.')
@@ -33,6 +34,11 @@ def logout_view(request):
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
+
+        if CustomUser.objects.filter(s_num = request.POST['s_num']).exists():
+                messages.info(request, '중복된 학번이 있습니다.')
+                return redirect('urlsignup')
+
         if form.is_valid():
             user = form.save()
             login(request, user)
