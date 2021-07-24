@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 <br><br>
-<h1>경기대학교</h1><br><br>
+<h1><strong>경기대학교</strong></h1><br><br>
 ______ <br><br><br>
 {%if user.is_authenticated%}
 <h5>{{user.realname}}님 🦁 반갑습니다!</h5>
@@ -13,7 +13,7 @@ ______ <br><br><br>
 {%endif%}
 <br><br><hr>
 <br><br><br>
-<h3 style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;현재까지 제출된 지원서는 총 <span style="color: red;">{{count}}</span> 개입니다.</h3><br><br>
+<h3 style="text-align: left;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;현재까지 제출된 지원서는 총 <span style="color: red;">{{count}}</span> 개입니다.</strong></h3><br><br>
 {%if user.is_staff%}
   {%for a in aa%}
   <div class="card text-white bg-dark mb-3" style="max-width: 18rem; display: inline-block; padding: 50;" >

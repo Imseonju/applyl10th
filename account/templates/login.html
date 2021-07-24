@@ -1,11 +1,14 @@
 {%extends 'base.html'%}
 {%block content%}
 <br><br><br><br><br><br>
-<h1>경기대학교</h1>
+<h1><strong>경기대학교</strong></h1>
 <br>______
 <br><br><br>
-<p>경기대학교 멋사에 지원해 주셔서 감사합니다.<br>제출 기한 <span style="color: red;">3.12일 23:59</span> 까지</p>
+<p><strong>경기대학교 멋사에 방문해주셔서 감사합니다.<br>서류 제출 기한 <span style="color: darkorange;">3.12일 23:59</span> 까지</strong></p>
 <br>
+{%for m in messages%}
+<h5 style="color: red;"><strong>{{m.message}}</strong></h5><br>
+{%endfor%}
 <div class="text" style="background-color: white; color: black;">
 
 <br>
